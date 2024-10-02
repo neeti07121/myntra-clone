@@ -1,0 +1,51 @@
+<mat-toolbar color="primary">
+  <span class="logo">
+   
+      <img src="../../assets/logo.jpg" alt="Logo" class="menu-logo" />
+    
+
+  </span>
+
+  <div class="nav-contents">
+    <span class="categories">
+      <button [matMenuTriggerFor]="womenMenu"><a class="desktop-main men_items">Men</a></button>
+      <button><a class="desktop-main women_items">Women</a></button>
+      <button><a class="desktop-main kids_items">Kids</a></button>
+      <button><a class="desktop-main home_items">Home & Living</a></button>
+      <button><a class="desktop-main beauty_items">Beauty</a></button>
+      <button><a class="desktop-main studio_items">Studio<span class="new" style="color: red;">NEW</span></a></button>
+
+      <!-- <button  *ngFor="let category of categories" [matMenuTriggerFor]="menu"><a class="desktop-main">
+                {{ category }}</a></button> -->
+
+    </span>
+  </div>
+  <mat-menu class="submenu" #menu="matMenu">
+    <button mat-menu-item>Subcategory 1</button>
+    <button mat-menu-item>Subcategory 2</button>
+  </mat-menu>
+
+  <mat-menu #womenMenu="matMenu" class="full-width-menu">
+    <div class="menu-container">
+      <div class="menu-column" *ngFor="let category of menuData">
+        <h3>{{ category.title }}</h3>
+        <ul>
+          <li *ngFor="let item of category.items">{{ item.name }}</li>
+        </ul>
+      </div>
+    </div>
+
+ </mat-menu>
+
+  <mat-menu #womenSubMenu1="matMenu">
+    <button mat-menu-item>Salwar & Suits</button>
+    <button mat-menu-item>Skirts & Palazzos</button>
+    <button mat-menu-item>Sarees</button>
+  </mat-menu>
+
+  <mat-menu #womenSubMenu2="matMenu">
+    <button mat-menu-item>Dresses</button>
+    <button mat-menu-item>Tops</button>
+    <button mat-menu-item>Tshirts</button>
+  </mat-menu>
+</mat-toolbar>
